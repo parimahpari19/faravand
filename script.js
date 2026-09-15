@@ -2,1939 +2,1255 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>فراوند | FARAVAND</title>
-
-  <meta
-    name="description"
-    content="فراوند؛ پلتفرم تخصصی اتصال خریداران، تولیدکنندگان، تأمین‌کنندگان و واردکنندگان شیرآلات و قطعات صنعتی ایران."
-  >
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  >
-
-  <style>
-
-    /* =========================
-       ROOT
-    ========================= */
-
-    :root {
-      --bg: #061014;
-      --bg-soft: #0a171b;
-
-      --text: #f4f1eb;
-      --muted: #9ca9aa;
-
-      --steel: #607074;
-
-      --copper: #d98752;
-      --copper-light: #efa46f;
-
-      --teal: #00aeb6;
-      --teal-light: #46d6d9;
-
-      --border: rgba(190, 215, 216, 0.16);
-
-      --radius: 20px;
-
-      --max-width: 1400px;
-    }
-
-
-    /* =========================
-       RESET
-    ========================= */
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: "Vazirmatn", sans-serif;
-      overflow-x: hidden;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    button,
-    input {
-      font-family: inherit;
-    }
-
-
-    /* =========================
-       HEADER
-    ========================= */
-
-    header {
-      position: absolute;
-      top: 0;
-      right: 0;
-      left: 0;
-
-      height: 85px;
-
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      padding: 0 5%;
-
-      z-index: 100;
-
-      background: linear-gradient(
-        to bottom,
-        rgba(3, 9, 11, 0.75),
-        transparent
-      );
-    }
-
-
-    /* LOGO */
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .logo-symbol {
-
-      width: 48px;
-      height: 48px;
-
-      border: 1px solid var(--copper);
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      border-radius: 13px;
-
-      color: var(--copper-light);
-
-      font-size: 25px;
-
-      transform: rotate(45deg);
-
-      background: rgba(216, 135, 82, 0.04);
-    }
-
-    .logo-symbol span {
-      transform: rotate(-45deg);
-    }
-
-    .logo-text {
-      font-size: 23px;
-      font-weight: 800;
-    }
-
-    .logo-text small {
-      display: block;
-
-      font-size: 8px;
-
-      letter-spacing: 5px;
-
-      color: #899596;
-
-      text-align: center;
-
-      margin-top: 2px;
-    }
-
-
-    /* NAVIGATION */
-
-    nav {
-      display: flex;
-      gap: 30px;
-
-      font-size: 13px;
-
-      color: #d4dddd;
-    }
-
-    nav a {
-      position: relative;
-
-      transition: 0.3s;
-    }
-
-    nav a::after {
-      content: "";
-
-      position: absolute;
-
-      bottom: -12px;
-      right: 0;
-
-      width: 0;
-      height: 2px;
-
-      background: var(--copper);
-
-      transition: 0.3s;
-    }
-
-    nav a:hover,
-    nav a.active {
-      color: var(--copper-light);
-    }
-
-    nav a:hover::after,
-    nav a.active::after {
-      width: 100%;
-    }
-
-
-    /* HEADER ACTIONS */
-
-    .header-actions {
-      display: flex;
-      align-items: center;
-
-      gap: 15px;
-
-      font-size: 12px;
-    }
-
-    .login {
-      padding: 10px 17px;
-
-      border: 1px solid var(--border);
-
-      border-radius: 50px;
-
-      transition: 0.3s;
-    }
-
-    .login:hover {
-      border-color: var(--copper);
-      color: var(--copper-light);
-    }
-
-
-    /* =========================
-       HERO
-    ========================= */
-
-    .hero {
-
-      min-height: 850px;
-
-      position: relative;
-
-      display: flex;
-      align-items: center;
-
-      background:
-
-        linear-gradient(
-          90deg,
-          rgba(3, 9, 11, 0.98) 0%,
-          rgba(3, 9, 11, 0.75) 22%,
-          rgba(3, 9, 11, 0.15) 65%,
-          rgba(3, 9, 11, 0.65) 100%
-        ),
-
-        linear-gradient(
-          0deg,
-          var(--bg) 0%,
-          transparent 35%
-        ),
-
-        url("hero.png");
-
-      background-size: cover;
-      background-position: center;
-
-      overflow: hidden;
-    }
-
-
-    /* DARK OVERLAY */
-
-    .hero::before {
-
-      content: "";
-
-      position: absolute;
-
-      inset: 0;
-
-      background:
-
-        radial-gradient(
-          circle at 75% 35%,
-          rgba(0, 174, 182, 0.10),
-          transparent 28%
-        ),
-
-        radial-gradient(
-          circle at 25% 40%,
-          rgba(216, 135, 82, 0.10),
-          transparent 30%
-        );
-    }
-
-
-    /* BOTTOM FADE */
-
-    .hero::after {
-
-      content: "";
-
-      position: absolute;
-
-      right: 0;
-      left: 0;
-      bottom: 0;
-
-      height: 250px;
-
-      background: linear-gradient(
-        to top,
-        var(--bg),
-        transparent
-      );
-    }
-
-
-    .hero-container {
-
-      width: 100%;
-
-      max-width: var(--max-width);
-
-      margin: auto;
-
-      padding: 130px 5% 100px;
-
-      position: relative;
-
-      z-index: 5;
-    }
-
-
-    .hero-content {
-
-      max-width: 470px;
-    }
-
-
-    .eyebrow {
-
-      color: var(--copper-light);
-
-      font-size: 13px;
-
-      margin-bottom: 20px;
-
-      letter-spacing: 0.3px;
-    }
-
-
-    .hero h1 {
-
-      font-size: clamp(45px, 6vw, 82px);
-
-      line-height: 1.05;
-
-      font-weight: 800;
-
-      margin-bottom: 25px;
-    }
-
-
-    .hero h1 span {
-
-      color: var(--copper-light);
-    }
-
-
-    .hero-description {
-
-      color: #c3cccc;
-
-      line-height: 2;
-
-      font-size: 15px;
-
-      margin-bottom: 30px;
-    }
-
-
-    /* BUTTONS */
-
-    .buttons {
-
-      display: flex;
-
-      gap: 12px;
-
-      flex-wrap: wrap;
-    }
-
-
-    .btn {
-
-      padding: 14px 23px;
-
-      border-radius: 12px;
-
-      border: 1px solid var(--border);
-
-      background: rgba(7, 18, 22, 0.72);
-
-      color: white;
-
-      cursor: pointer;
-
-      transition: 0.3s;
-    }
-
-
-    .btn:hover {
-
-      transform: translateY(-3px);
-
-      border-color: var(--copper);
-    }
-
-
-    .btn-primary {
-
-      background:
-        linear-gradient(
-          135deg,
-          var(--copper-light),
-          var(--copper)
-        );
-
-      color: #111;
-
-      border: none;
-
-      font-weight: 700;
-    }
-
-
-    /* =========================
-       SEARCH
-    ========================= */
-
-    .search-section {
-
-      position: relative;
-
-      z-index: 20;
-
-      max-width: 980px;
-
-      margin: -100px auto 0;
-
-      padding: 0 20px;
-    }
-
-
-    .search-box {
-
-      background: rgba(5, 17, 21, 0.91);
-
-      backdrop-filter: blur(20px);
-
-      border: 1px solid rgba(180, 210, 212, 0.20);
-
-      border-radius: 24px;
-
-      padding: 18px;
-
-      box-shadow:
-        0 25px 80px rgba(0, 0, 0, 0.45);
-    }
-
-
-    .search-row {
-
-      display: flex;
-
-      gap: 12px;
-    }
-
-
-    .search-row input {
-
-      flex: 1;
-
-      background: transparent;
-
-      border: none;
-
-      outline: none;
-
-      color: white;
-
-      padding: 15px;
-
-      font-size: 14px;
-    }
-
-
-    .search-row input::placeholder {
-
-      color: #7e8b8d;
-    }
-
-
-    .search-button {
-
-      min-width: 145px;
-
-      border: none;
-
-      border-radius: 14px;
-
-      background: var(--copper);
-
-      color: #111;
-
-      font-weight: 800;
-
-      cursor: pointer;
-
-      transition: 0.3s;
-    }
-
-
-    .search-button:hover {
-
-      background: var(--copper-light);
-
-      transform: scale(1.02);
-    }
-
-
-    /* CHIPS */
-
-    .chips {
-
-      display: flex;
-
-      flex-wrap: wrap;
-
-      gap: 8px;
-
-      margin-top: 12px;
-    }
-
-
-    .chip {
-
-      padding: 8px 14px;
-
-      border-radius: 30px;
-
-      border: 1px solid var(--border);
-
-      background: rgba(255,255,255,0.025);
-
-      color: #b7c1c2;
-
-      cursor: pointer;
-
-      font-size: 11px;
-
-      transition: 0.3s;
-    }
-
-
-    .chip:hover {
-
-      border-color: var(--teal);
-
-      color: white;
-
-      box-shadow:
-        0 0 15px rgba(0,174,182,.15);
-    }
-
-
-    /* =========================
-       GENERAL SECTION
-    ========================= */
-
-    section.content-section {
-
-      max-width: var(--max-width);
-
-      margin: auto;
-
-      padding: 100px 5%;
-    }
-
-
-    .section-title {
-
-      margin-bottom: 35px;
-    }
-
-
-    .section-title .eyebrow {
-
-      margin-bottom: 8px;
-    }
-
-
-    .section-title h2 {
-
-      font-size: 32px;
-
-      margin-bottom: 12px;
-    }
-
-
-    .section-title p {
-
-      max-width: 650px;
-
-      color: var(--muted);
-
-      line-height: 1.9;
-
-      font-size: 14px;
-    }
-
-
-    /* =========================
-       SERVICE CARDS
-    ========================= */
-
-    .services {
-
-      display: grid;
-
-      grid-template-columns:
-        repeat(5, 1fr);
-
-      gap: 14px;
-    }
-
-
-    .service-card {
-
-      position: relative;
-
-      min-height: 260px;
-
-      border-radius: var(--radius);
-
-      overflow: hidden;
-
-      background: #0a171b;
-
-      border: 1px solid var(--border);
-
-      cursor: pointer;
-
-      transition: 0.4s;
-    }
-
-
-    .service-card:hover {
-
-      transform: translateY(-8px);
-
-      border-color:
-        rgba(0, 174, 182, 0.55);
-
-      box-shadow:
-        0 20px 50px rgba(0,0,0,.30);
-    }
-
-
-    .service-image {
-
-      height: 125px;
-
-      background-image:
-        linear-gradient(
-          to bottom,
-          transparent,
-          #0a171b
-        ),
-        url("hero.png");
-
-      background-size: cover;
-
-      background-position: center;
-    }
-
-
-    .service-card:nth-child(2)
-    .service-image {
-
-      background-position: 35% center;
-    }
-
-
-    .service-card:nth-child(3)
-    .service-image {
-
-      background-position: 55% center;
-    }
-
-
-    .service-card:nth-child(4)
-    .service-image {
-
-      background-position: 75% center;
-    }
-
-
-    .service-card:nth-child(5)
-    .service-image {
-
-      background-position: 95% center;
-    }
-
-
-    .service-body {
-
-      padding: 15px 18px;
-    }
-
-
-    .service-icon {
-
-      width: 43px;
-      height: 43px;
-
-      display: flex;
-
-      align-items: center;
-      justify-content: center;
-
-      border-radius: 50%;
-
-      border: 1px solid
-        rgba(0,174,182,.55);
-
-      background: #071216;
-
-      color: var(--teal-light);
-
-      margin-top: -38px;
-
-      position: relative;
-
-      font-size: 19px;
-    }
-
-
-    .service-body h3 {
-
-      font-size: 16px;
-
-      margin: 13px 0 7px;
-    }
-
-
-    .service-body p {
-
-      color: var(--muted);
-
-      font-size: 11px;
-
-      line-height: 1.8;
-    }
-
-
-    /* =========================
-       SHOWCASE
-    ========================= */
-
-    .showcase {
-
-      display: grid;
-
-      grid-template-columns:
-        1.2fr 0.8fr;
-
-      gap: 18px;
-    }
-
-
-    .showcase-main {
-
-      min-height: 330px;
-
-      border-radius: 22px;
-
-      border: 1px solid var(--border);
-
-      overflow: hidden;
-
-      display: flex;
-
-      align-items: end;
-
-      padding: 35px;
-
-      background:
-
-        linear-gradient(
-          90deg,
-          rgba(3,10,13,.95),
-          rgba(3,10,13,.15)
-        ),
-
-        url("hero.png");
-
-      background-size: cover;
-
-      background-position: center;
-    }
-
-
-    .showcase-main h2 {
-
-      font-size: 30px;
-
-      margin-bottom: 10px;
-    }
-
-
-    .showcase-main p {
-
-      color: #b9c4c5;
-
-      line-height: 1.9;
-
-      font-size: 13px;
-
-      max-width: 500px;
-    }
-
-
-    /* =========================
-       STATS
-    ========================= */
-
-    .stats {
-
-      display: grid;
-
-      grid-template-columns:
-        repeat(3, 1fr);
-
-      gap: 12px;
-    }
-
-
-    .stat {
-
-      border: 1px solid var(--border);
-
-      border-radius: 18px;
-
-      padding: 25px;
-
-      background: rgba(255,255,255,.025);
-    }
-
-
-    .stat strong {
-
-      display: block;
-
-      color: var(--copper-light);
-
-      font-size: 28px;
-
-      margin-bottom: 8px;
-    }
-
-
-    .stat span {
-
-      color: var(--muted);
-
-      font-size: 12px;
-
-      line-height: 1.8;
-    }
-
-
-    /* =========================
-       IRAN SECTION
-    ========================= */
-
-    .iran-box {
-
-      margin-top: 18px;
-
-      min-height: 150px;
-
-      border-radius: 18px;
-
-      border: 1px solid var(--border);
-
-      padding: 25px;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: space-between;
-
-      background:
-
-        radial-gradient(
-          circle at 75% 40%,
-          rgba(0,174,182,.08),
-          transparent 25%
-        ),
-
-        #091519;
-    }
-
-
-    .iran-box h3 {
-
-      font-size: 20px;
-
-      margin-bottom: 8px;
-    }
-
-
-    .iran-box p {
-
-      color: var(--muted);
-
-      font-size: 12px;
-    }
-
-
-    .iran-symbol {
-
-      font-size: 80px;
-
-      color: var(--teal);
-
-      opacity: .25;
-    }
-
-
-    /* =========================
-       CTA
-    ========================= */
-
-    .cta {
-
-      border: 1px solid
-        rgba(216,135,82,.28);
-
-      border-radius: 25px;
-
-      padding: 45px;
-
-      background:
-
-        linear-gradient(
-          135deg,
-          rgba(216,135,82,.09),
-          rgba(0,174,182,.04)
-        );
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: space-between;
-
-      gap: 30px;
-    }
-
-
-    .cta h2 {
-
-      font-size: 28px;
-
-      margin-bottom: 8px;
-    }
-
-
-    .cta p {
-
-      color: var(--muted);
-
-      line-height: 1.9;
-
-      font-size: 13px;
-    }
-
-
-    /* =========================
-       FOOTER
-    ========================= */
-
-    footer {
-
-      border-top: 1px solid var(--border);
-
-      padding: 35px 5%;
-
-      color: #899596;
-
-      font-size: 11px;
-    }
-
-
-    .footer-inner {
-
-      max-width: var(--max-width);
-
-      margin: auto;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: space-between;
-
-      gap: 20px;
-
-      flex-wrap: wrap;
-    }
-
-
-    .footer-brand {
-
-      color: var(--copper-light);
-
-      font-size: 18px;
-
-      font-weight: 800;
-    }
-
-
-    /* =========================
-       TOAST
-    ========================= */
-
-    .toast {
-
-      position: fixed;
-
-      bottom: 25px;
-
-      left: 50%;
-
-      transform:
-        translate(-50%, 100px);
-
-      background: #122126;
-
-      border: 1px solid
-        rgba(0,174,182,.4);
-
-      color: white;
-
-      padding: 13px 20px;
-
-      border-radius: 12px;
-
-      z-index: 999;
-
-      transition: .35s;
-
-      font-size: 12px;
-    }
-
-
-    .toast.show {
-
-      transform:
-        translate(-50%, 0);
-    }
-
-
-    /* =========================
-       RESPONSIVE
-    ========================= */
-
-    @media(max-width:1100px) {
-
-      nav {
-        display: none;
-      }
-
-      .services {
-
-        grid-template-columns:
-          repeat(2, 1fr);
-      }
-
-      .showcase {
-
-        grid-template-columns:
-          1fr;
-      }
-    }
-
-
-    @media(max-width:650px) {
-
-      header {
-
-        padding:
-          0 18px;
-      }
-
-      .header-actions span {
-
-        display: none;
-      }
-
-      .hero {
-
-        min-height: 720px;
-
-        background-position:
-          65% center;
-      }
-
-      .hero-container {
-
-        padding:
-          120px 20px 60px;
-      }
-
-      .hero-content {
-
-        max-width: 100%;
-      }
-
-      .hero h1 {
-
-        font-size: 48px;
-      }
-
-      .search-section {
-
-        padding: 0 14px;
-
-        margin-top: -65px;
-      }
-
-      .search-row {
-
-        flex-direction: column;
-      }
-
-      .search-button {
-
-        height: 50px;
-      }
-
-      .services {
-
-        grid-template-columns:
-          1fr;
-      }
-
-      section.content-section {
-
-        padding:
-          70px 18px;
-      }
-
-      .stats {
-
-        grid-template-columns:
-          1fr;
-      }
-
-      .iran-box {
-
-        flex-direction: column;
-
-        align-items: flex-start;
-      }
-
-      .cta {
-
-        padding: 30px;
-
-        display: block;
-      }
-
-      .cta .btn {
-
-        margin-top: 20px;
-      }
-    }
-
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>فراوند | FARAVAND</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Vazirmatn", sans-serif;
+            background: #080c10;
+            color: #f1f4f5;
+            overflow-x: hidden;
+        }
+
+        :root {
+            --bg: #080c10;
+            --bg2: #0d1319;
+            --card: #111a21;
+            --line: rgba(255,255,255,.09);
+            --text: #f4f6f7;
+            --muted: #9ca8af;
+            --copper: #d08a55;
+            --copper2: #efaa6b;
+            --turquoise: #43b7ae;
+        }
+
+        /* ================= HEADER ================= */
+
+        header {
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            z-index: 10;
+
+            height: 90px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 7%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 800;
+            font-size: 20px;
+            letter-spacing: 1px;
+        }
+
+        .logo-mark {
+            width: 38px;
+            height: 38px;
+            border: 2px solid var(--copper);
+            border-radius: 9px;
+            transform: rotate(45deg);
+            position: relative;
+        }
+
+        .logo-mark::after {
+            content: "";
+            position: absolute;
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            background: var(--turquoise);
+            top: 10px;
+            left: 10px;
+        }
+
+        .logo span {
+            color: var(--copper2);
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #c6cdd1;
+            text-decoration: none;
+            font-size: 14px;
+            transition: .3s;
+        }
+
+        nav a:hover {
+            color: var(--copper2);
+        }
+
+        .header-btn {
+            border: 1px solid rgba(208,138,85,.45);
+            padding: 11px 18px;
+            border-radius: 10px;
+            color: var(--copper2);
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 790px;
+            position: relative;
+            overflow: hidden;
+
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+
+            background:
+                radial-gradient(
+                    circle at 75% 35%,
+                    rgba(67,183,174,.15),
+                    transparent 25%
+                ),
+                radial-gradient(
+                    circle at 25% 65%,
+                    rgba(208,138,85,.12),
+                    transparent 30%
+                ),
+                linear-gradient(
+                    90deg,
+                    #080c10 5%,
+                    rgba(8,12,16,.85) 35%,
+                    rgba(8,12,16,.25) 100%
+                );
+
+            z-index: 1;
+        }
+
+        /* تصویر تک بعدی صنعتی */
+
+        .industrial-art {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 620px;
+
+            z-index: 0;
+        }
+
+        .industrial-art svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+
+            width: 86%;
+            max-width: 1250px;
+            margin: auto;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+
+            color: var(--turquoise);
+            font-size: 13px;
+            margin-bottom: 22px;
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 28px;
+            height: 1px;
+            background: var(--turquoise);
+        }
+
+        h1 {
+            max-width: 690px;
+
+            font-size: clamp(45px, 6vw, 82px);
+            line-height: 1.15;
+            font-weight: 800;
+
+            margin-bottom: 25px;
+        }
+
+        h1 span {
+            color: var(--copper2);
+        }
+
+        .hero-description {
+            max-width: 570px;
+            color: var(--muted);
+            font-size: 17px;
+            line-height: 2.1;
+            margin-bottom: 35px;
+        }
+
+        /* ================= SEARCH ================= */
+
+        .search-box {
+            width: 100%;
+            max-width: 720px;
+
+            display: flex;
+            align-items: center;
+
+            background: rgba(17,26,33,.88);
+            border: 1px solid rgba(255,255,255,.12);
+            border-radius: 16px;
+
+            padding: 8px;
+
+            backdrop-filter: blur(15px);
+
+            box-shadow:
+                0 25px 80px rgba(0,0,0,.35);
+        }
+
+        .search-icon {
+            width: 50px;
+            text-align: center;
+            font-size: 20px;
+        }
+
+        .search-box input {
+            flex: 1;
+            min-width: 0;
+
+            background: transparent;
+            border: none;
+            outline: none;
+
+            color: white;
+            font-family: inherit;
+            font-size: 14px;
+        }
+
+        .search-box input::placeholder {
+            color: #738087;
+        }
+
+        .search-box button {
+            border: none;
+            cursor: pointer;
+
+            padding: 14px 24px;
+
+            border-radius: 11px;
+
+            background: var(--copper);
+            color: white;
+
+            font-family: inherit;
+            font-weight: 700;
+
+            transition: .3s;
+        }
+
+        .search-box button:hover {
+            background: var(--copper2);
+            transform: translateY(-2px);
+        }
+
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+            margin-top: 15px;
+        }
+
+        .chip {
+            padding: 8px 13px;
+            border: 1px solid var(--line);
+            border-radius: 30px;
+
+            color: #9da8ad;
+            font-size: 12px;
+
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        .chip:hover {
+            border-color: var(--copper);
+            color: var(--copper2);
+        }
+
+        /* ================= SECTION ================= */
+
+        section {
+            padding: 110px 7%;
+        }
+
+        .section-label {
+            color: var(--turquoise);
+            font-size: 12px;
+            margin-bottom: 13px;
+        }
+
+        .section-title {
+            font-size: clamp(30px, 4vw, 48px);
+            margin-bottom: 18px;
+        }
+
+        .section-description {
+            color: var(--muted);
+            max-width: 650px;
+            line-height: 2;
+        }
+
+        /* ================= SERVICES ================= */
+
+        .services {
+            background: var(--bg2);
+        }
+
+        .services-grid {
+            margin-top: 55px;
+
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+        }
+
+        .service {
+            position: relative;
+            min-height: 260px;
+
+            padding: 28px;
+
+            border: 1px solid var(--line);
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.04),
+                    rgba(255,255,255,.01)
+                );
+
+            border-radius: 18px;
+
+            overflow: hidden;
+
+            transition: .4s;
+        }
+
+        .service::after {
+            content: "";
+            position: absolute;
+            width: 100px;
+            height: 100px;
+
+            background: var(--copper);
+            opacity: .08;
+
+            border-radius: 50%;
+
+            left: -30px;
+            bottom: -40px;
+
+            transition: .4s;
+        }
+
+        .service:hover {
+            transform: translateY(-8px);
+            border-color: rgba(208,138,85,.4);
+        }
+
+        .service:hover::after {
+            transform: scale(2);
+        }
+
+        .service-number {
+            color: var(--copper);
+            font-size: 12px;
+        }
+
+        .service-icon {
+            font-size: 38px;
+            margin: 30px 0 20px;
+        }
+
+        .service h3 {
+            font-size: 17px;
+            margin-bottom: 10px;
+        }
+
+        .service p {
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.9;
+        }
+
+        /* ================= FLOW ================= */
+
+        .flow {
+            position: relative;
+        }
+
+        .flow-container {
+            margin-top: 55px;
+
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 20px;
+        }
+
+        .flow-card {
+            padding: 30px;
+
+            border: 1px solid var(--line);
+            border-radius: 18px;
+
+            background: var(--card);
+
+            position: relative;
+        }
+
+        .flow-card:not(:last-child)::after {
+            content: "←";
+
+            position: absolute;
+            left: -18px;
+            top: 50%;
+
+            color: var(--copper);
+            font-size: 24px;
+        }
+
+        .flow-card strong {
+            display: block;
+            font-size: 30px;
+            color: var(--copper2);
+            margin-bottom: 15px;
+        }
+
+        .flow-card h3 {
+            margin-bottom: 8px;
+        }
+
+        .flow-card p {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        /* ================= STATS ================= */
+
+        .stats {
+            background:
+                linear-gradient(
+                    120deg,
+                    #10181f,
+                    #0a0f14
+                );
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 20px;
+            margin-top: 50px;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 35px 20px;
+            border-top: 1px solid var(--line);
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 45px;
+            color: var(--copper2);
+        }
+
+        .stat span {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        /* ================= CTA ================= */
+
+        .cta {
+            text-align: center;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(67,183,174,.09),
+                    transparent 55%
+                );
+        }
+
+        .cta h2 {
+            font-size: clamp(30px,5vw,58px);
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            color: var(--muted);
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+
+            padding: 15px 28px;
+
+            background: var(--copper);
+            color: white;
+
+            text-decoration: none;
+            border-radius: 12px;
+
+            font-weight: 700;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            padding: 35px 7%;
+
+            border-top: 1px solid var(--line);
+
+            display: flex;
+            justify-content: space-between;
+
+            color: #69757b;
+            font-size: 12px;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media(max-width:1000px) {
+
+            nav {
+                display: none;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2,1fr);
+            }
+
+            .flow-container {
+                grid-template-columns: repeat(2,1fr);
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2,1fr);
+            }
+
+        }
+
+        @media(max-width:600px) {
+
+            header {
+                padding: 0 5%;
+            }
+
+            .header-btn {
+                display: none;
+            }
+
+            .hero {
+                min-height: 850px;
+            }
+
+            .hero-content {
+                width: 90%;
+                padding-top: 70px;
+            }
+
+            h1 {
+                font-size: 43px;
+            }
+
+            .hero-description {
+                font-size: 14px;
+            }
+
+            .search-box {
+                flex-wrap: wrap;
+            }
+
+            .search-icon {
+                display: none;
+            }
+
+            .search-box input {
+                padding: 12px;
+                width: 100%;
+                flex-basis: 100%;
+            }
+
+            .search-box button {
+                width: 100%;
+            }
+
+            .services-grid,
+            .flow-container,
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .flow-card:not(:last-child)::after {
+                display: none;
+            }
+
+            section {
+                padding: 80px 6%;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+    </style>
 </head>
 
 
 <body>
 
+<!-- ================= HEADER ================= -->
 
-  <!-- =========================
-       HEADER
-  ========================= -->
+<header>
 
-  <header>
-
-    <a href="#" class="logo">
-
-      <div class="logo-symbol">
-        <span>ف</span>
-      </div>
-
-      <div class="logo-text">
-
-        فراوند
-
-        <small>
-          F A R A V A N D
-        </small>
-
-      </div>
-
-    </a>
-
+    <div class="logo">
+        <div class="logo-mark"></div>
+        <div>
+            فَراوَند
+            <span>FARAVAND</span>
+        </div>
+    </div>
 
     <nav>
-
-      <a href="#home" class="active">
-        صفحه اصلی
-      </a>
-
-      <a href="#services">
-        خدمات
-      </a>
-
-      <a href="#companies">
-        شرکت‌ها
-      </a>
-
-      <a href="#manufacturers">
-        تولیدکنندگان
-      </a>
-
-      <a href="#suppliers">
-        تأمین‌کنندگان
-      </a>
-
-      <a href="#importers">
-        واردکنندگان
-      </a>
-
-      <a href="#about">
-        درباره ما
-      </a>
-
+        <a href="#">خانه</a>
+        <a href="#services">خدمات</a>
+        <a href="#network">شبکه صنعت</a>
+        <a href="#about">درباره فراوند</a>
     </nav>
 
+    <a class="header-btn" href="#contact">
+        ثبت درخواست
+    </a>
 
-    <div class="header-actions">
+</header>
 
-      <span>
-        FA / EN
-      </span>
 
-      <a href="#" class="login">
-        ورود / ثبت‌نام
-      </a>
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="industrial-art">
+
+        <!-- تصویر تک بعدی ساخته شده با SVG -->
+
+        <svg viewBox="0 0 1600 700"
+             preserveAspectRatio="xMidYMid slice"
+             xmlns="http://www.w3.org/2000/svg">
+
+            <!-- ساختمان کارخانه -->
+
+            <rect x="750" y="130" width="700" height="500"
+                  fill="#111a20"/>
+
+            <rect x="820" y="190" width="560" height="440"
+                  fill="#0d151b"
+                  stroke="#33414a"
+                  stroke-width="3"/>
+
+            <!-- سقف -->
+
+            <polygon
+                points="700,190 800,100 1430,100 1510,190"
+                fill="#18232a"
+                stroke="#3d4c54"
+                stroke-width="3"/>
+
+            <!-- پنجره ها -->
+
+            <g fill="#173b3c">
+
+                <rect x="850" y="235" width="110" height="75"/>
+                <rect x="985" y="235" width="110" height="75"/>
+                <rect x="1120" y="235" width="110" height="75"/>
+                <rect x="1255" y="235" width="90" height="75"/>
+
+                <rect x="850" y="340" width="110" height="75"/>
+                <rect x="985" y="340" width="110" height="75"/>
+                <rect x="1120" y="340" width="110" height="75"/>
+                <rect x="1255" y="340" width="90" height="75"/>
+
+            </g>
+
+            <!-- نور پنجره ها -->
+
+            <g fill="#43b7ae" opacity=".25">
+
+                <rect x="850" y="235" width="110" height="75"/>
+                <rect x="1120" y="235" width="110" height="75"/>
+                <rect x="985" y="340" width="110" height="75"/>
+
+            </g>
+
+
+            <!-- لوله های صنعتی -->
+
+            <path
+                d="M100 590 H500 V430 H720 V300 H820"
+                fill="none"
+                stroke="#59666d"
+                stroke-width="22"/>
+
+            <path
+                d="M100 590 H500 V430 H720 V300 H820"
+                fill="none"
+                stroke="#d08a55"
+                stroke-width="5"/>
+
+
+            <path
+                d="M420 650 V520 H600 V390 H850"
+                fill="none"
+                stroke="#46545c"
+                stroke-width="30"/>
+
+
+            <!-- ولو بزرگ -->
+
+            <g transform="translate(640 390)">
+
+                <circle r="72"
+                        fill="#151f25"
+                        stroke="#c87945"
+                        stroke-width="8"/>
+
+                <circle r="43"
+                        fill="#0a1014"
+                        stroke="#65737a"
+                        stroke-width="5"/>
+
+                <rect x="-18"
+                      y="-110"
+                      width="36"
+                      height="55"
+                      rx="7"
+                      fill="#c87945"/>
+
+                <rect x="-75"
+                      y="-125"
+                      width="150"
+                      height="18"
+                      rx="9"
+                      fill="#c87945"/>
+
+            </g>
+
+
+            <!-- ولو دوم -->
+
+            <g transform="translate(1080 520)">
+
+                <circle r="58"
+                        fill="#172127"
+                        stroke="#43b7ae"
+                        stroke-width="7"/>
+
+                <circle r="30"
+                        fill="#0a1014"
+                        stroke="#536168"
+                        stroke-width="5"/>
+
+                <rect x="-12"
+                      y="-90"
+                      width="24"
+                      height="38"
+                      fill="#43b7ae"/>
+
+            </g>
+
+
+            <!-- جرثقیل -->
+
+            <line x1="1080"
+                  y1="100"
+                  x2="1080"
+                  y2="250"
+                  stroke="#56646b"
+                  stroke-width="10"/>
+
+            <line x1="1080"
+                  y1="110"
+                  x2="1400"
+                  y2="110"
+                  stroke="#56646b"
+                  stroke-width="10"/>
+
+            <line x1="1250"
+                  y1="110"
+                  x2="1250"
+                  y2="180"
+                  stroke="#d08a55"
+                  stroke-width="5"/>
+
+
+            <!-- زمین -->
+
+            <path
+                d="M0 630 H1600"
+                stroke="#2d3940"
+                stroke-width="4"/>
+
+
+            <!-- خطوط نور -->
+
+            <g opacity=".4">
+
+                <line
+                    x1="250"
+                    y1="150"
+                    x2="650"
+                    y2="80"
+                    stroke="#43b7ae"
+                    stroke-width="2"/>
+
+                <line
+                    x1="350"
+                    y1="210"
+                    x2="700"
+                    y2="120"
+                    stroke="#d08a55"
+                    stroke-width="2"/>
+
+            </g>
+
+        </svg>
 
     </div>
 
-  </header>
+
+    <div class="hero-bg"></div>
 
 
-
-  <!-- =========================
-       HERO
-  ========================= -->
-
-  <section class="hero" id="home">
-
-    <div class="hero-container">
-
-      <div class="hero-content">
+    <div class="hero-content">
 
         <div class="eyebrow">
-
-          پل ارتباطی صنعت
-          ·
-          بازار شیرآلات و قطعات صنعتی ایران
-
+            زیرساخت هوشمند تأمین صنعتی ایران
         </div>
-
 
         <h1>
-
-          فراوند؛
-
-          <br>
-
-          <span>
-            هر قطعه، یک مسیر تأمین دارد.
-          </span>
-
+            فراوند؛
+            <br>
+            هر قطعه،
+            <span>یک مسیر تأمین</span>
+            دارد.
         </h1>
 
-
         <p class="hero-description">
-
-          فراوند پلتفرمی تخصصی برای پیدا کردن قطعه،
-          شناسایی تأمین‌کننده و اتصال خریداران،
-          تولیدکنندگان و واردکنندگان در زنجیره
-          تأمین صنعت ایران است.
-
+            فراوند یک پل تخصصی میان خریداران، تولیدکنندگان،
+            تأمین‌کنندگان و واردکنندگان قطعات و شیرآلات صنعتی است.
+            قطعه‌ای که به دنبالش هستید را پیدا کنید،
+            مسیر تأمینش را بشناسید.
         </p>
 
 
-        <div class="buttons">
+        <div class="search-box">
 
-          <a
-            href="#search"
-            class="btn btn-primary"
-          >
-            پیدا کردن قطعه
-          </a>
+            <div class="search-icon">⌕</div>
 
+            <input
+                id="searchInput"
+                type="text"
+                placeholder="نام قطعه، مدل، مشخصات فنی یا نیاز خود را وارد کنید..."
+            >
 
-          <a
-            href="#about"
-            class="btn"
-          >
-            آشنایی با فراوند
-          </a>
+            <button onclick="searchPart()">
+                جست‌وجوی قطعه
+            </button>
 
         </div>
 
-      </div>
 
-    </div>
+        <div class="chips">
 
-  </section>
-
-
-
-  <!-- =========================
-       SMART SEARCH
-  ========================= -->
-
-  <section
-    class="search-section"
-    id="search"
-  >
-
-    <div class="search-box">
-
-      <div class="search-row">
-
-        <input
-          id="searchInput"
-          type="text"
-          placeholder="نام قطعه، کد فنی، برند، سایز یا مشخصات موردنظر را وارد کنید..."
-        >
-
-
-        <button
-          class="search-button"
-          onclick="searchPart()"
-        >
-
-          جستجوی هوشمند
-
-        </button>
-
-      </div>
-
-
-      <div class="chips">
-
-        <button
-          class="chip"
-          onclick="setSearch('شیر پروانه‌ای')"
-        >
-          شیر پروانه‌ای
-        </button>
-
-
-        <button
-          class="chip"
-          onclick="setSearch('شیر توپی')"
-        >
-          شیر توپی
-        </button>
-
-
-        <button
-          class="chip"
-          onclick="setSearch('ولو')"
-        >
-          ولو
-        </button>
-
-
-        <button
-          class="chip"
-          onclick="setSearch('اکچویتور')"
-        >
-          اکچویتور
-        </button>
-
-
-        <button
-          class="chip"
-          onclick="setSearch('فلنج')"
-        >
-          فلنج
-        </button>
-
-
-        <button
-          class="chip"
-          onclick="setSearch('قطعات یدکی')"
-        >
-          قطعات یدکی
-        </button>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-
-  <!-- =========================
-       SERVICES
-  ========================= -->
-
-  <section
-    class="content-section"
-    id="services"
-  >
-
-    <div class="section-title">
-
-      <div class="eyebrow">
-        مسیر ورود به بازار
-      </div>
-
-      <h2>
-        چه چیزی می‌خواهید پیدا کنید؟
-      </h2>
-
-      <p>
-        فراوند فقط یک کاتالوگ صنعتی نیست؛
-        بستری برای ایجاد ارتباط میان بخش‌های
-        مختلف زنجیره تأمین صنعت است.
-      </p>
-
-    </div>
-
-
-    <div class="services">
-
-
-      <!-- CARD 1 -->
-
-      <article
-        class="service-card"
-        onclick="showMessage('جستجوی قطعه')"
-      >
-
-        <div class="service-image"></div>
-
-        <div class="service-body">
-
-          <div class="service-icon">
-            ⌕
-          </div>
-
-          <h3>
-            پیدا کردن قطعه
-          </h3>
-
-          <p>
-            جستجوی سریع و هوشمند
-            برای قطعات و شیرآلات صنعتی.
-          </p>
-
-        </div>
-
-      </article>
-
-
-
-      <!-- CARD 2 -->
-
-      <article
-        class="service-card"
-        id="suppliers"
-        onclick="showMessage('تأمین‌کنندگان')"
-      >
-
-        <div class="service-image"></div>
-
-        <div class="service-body">
-
-          <div class="service-icon">
-            ♧
-          </div>
-
-          <h3>
-            شرکت‌های تأمین‌کننده
-          </h3>
-
-          <p>
-            ارتباط با تأمین‌کنندگان
-            تخصصی سراسر ایران.
-          </p>
-
-        </div>
-
-      </article>
-
-
-
-      <!-- CARD 3 -->
-
-      <article
-        class="service-card"
-        id="manufacturers"
-        onclick="showMessage('تولیدکنندگان')"
-      >
-
-        <div class="service-image"></div>
-
-        <div class="service-body">
-
-          <div class="service-icon">
-            ⚙
-          </div>
-
-          <h3>
-            تولیدکنندگان
-          </h3>
-
-          <p>
-            مشاهده ظرفیت‌ها و
-            محصولات تولیدکنندگان.
-          </p>
-
-        </div>
-
-      </article>
-
-
-
-      <!-- CARD 4 -->
-
-      <article
-        class="service-card"
-        id="importers"
-        onclick="showMessage('واردکنندگان')"
-      >
-
-        <div class="service-image"></div>
-
-        <div class="service-body">
-
-          <div class="service-icon">
-            ◈
-          </div>
-
-          <h3>
-            واردکنندگان
-          </h3>
-
-          <p>
-            دسترسی به برندها و
-            کالاهای وارداتی.
-          </p>
-
-        </div>
-
-      </article>
-
-
-
-      <!-- CARD 5 -->
-
-      <article
-        class="service-card"
-        id="companies"
-        onclick="showMessage('درخواست خرید')"
-      >
-
-        <div class="service-image"></div>
-
-        <div class="service-body">
-
-          <div class="service-icon">
-            ▤
-          </div>
-
-          <h3>
-            درخواست خرید
-          </h3>
-
-          <p>
-            نیاز صنعتی خود را ثبت کنید
-            تا تأمین‌کنندگان پیشنهاد دهند.
-          </p>
-
-        </div>
-
-      </article>
-
-    </div>
-
-  </section>
-
-
-
-  <!-- =========================
-       ABOUT / INDUSTRIAL WORLD
-  ========================= -->
-
-  <section
-    class="content-section"
-    id="about"
-  >
-
-    <div class="showcase">
-
-
-      <div class="showcase-main">
-
-        <div>
-
-          <div class="eyebrow">
-            FARAVAND INDUSTRIAL NETWORK
-          </div>
-
-          <h2>
-            از قطعه تا راه‌حل
-          </h2>
-
-          <p>
-            فراوند برای ساختن مسیری کوتاه‌تر،
-            شفاف‌تر و تخصصی‌تر میان خریداران،
-            تولیدکنندگان، تأمین‌کنندگان و
-            واردکنندگان صنعت ایران ساخته شده است.
-          </p>
-
-        </div>
-
-      </div>
-
-
-
-      <div>
-
-        <div class="stats">
-
-
-          <div class="stat">
-
-            <strong>
-              +۵۰۰
-            </strong>
-
-            <span>
-              شرکت و تأمین‌کننده
-            </span>
-
-          </div>
-
-
-          <div class="stat">
-
-            <strong>
-              +۳۰۰۰
-            </strong>
-
-            <span>
-              قطعه و تجهیز قابل دسته‌بندی
-            </span>
-
-          </div>
-
-
-          <div class="stat">
-
-            <strong>
-              +۸۰۰
-            </strong>
-
-            <span>
-              تولیدکننده و تأمین‌کننده
-            </span>
-
-          </div>
-
-
-        </div>
-
-
-
-        <div class="iran-box">
-
-          <div>
-
-            <div class="eyebrow">
-              پوشش بازار
+            <div class="chip"
+                 onclick="setSearch('شیر پروانه‌ای')">
+                شیر پروانه‌ای
             </div>
 
-            <h3>
-              از تهران تا سراسر ایران
-            </h3>
+            <div class="chip"
+                 onclick="setSearch('شیر توپی')">
+                شیر توپی
+            </div>
+
+            <div class="chip"
+                 onclick="setSearch('اکچویتور')">
+                اکچویتور
+            </div>
+
+            <div class="chip"
+                 onclick="setSearch('فلنج')">
+                فلنج
+            </div>
+
+            <div class="chip"
+                 onclick="setSearch('قطعات یدکی')">
+                قطعات یدکی
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SERVICES ================= -->
+
+<section class="services" id="services">
+
+    <div class="section-label">
+        FARAVAND NETWORK
+    </div>
+
+    <h2 class="section-title">
+        از نیاز صنعتی تا تأمین
+    </h2>
+
+    <p class="section-description">
+        فراوند فقط یک فهرست محصولات نیست؛
+        شبکه‌ای برای پیدا کردن مسیر درست تأمین است.
+    </p>
+
+
+    <div class="services-grid">
+
+        <div class="service">
+
+            <span class="service-number">01</span>
+
+            <div class="service-icon">⌕</div>
+
+            <h3>پیدا کردن قطعه</h3>
 
             <p>
-              ساخت یک شبکه تخصصی برای
-              اتصال بازیگران زنجیره تأمین.
+                مشخصات قطعه یا نیاز فنی خود را وارد کنید
+                و گزینه‌های مناسب را پیدا کنید.
             </p>
 
-          </div>
+        </div>
 
 
-          <div class="iran-symbol">
-            ⌖
-          </div>
+        <div class="service">
+
+            <span class="service-number">02</span>
+
+            <div class="service-icon">⚙</div>
+
+            <h3>تولیدکنندگان</h3>
+
+            <p>
+                دسترسی به شبکه‌ای از تولیدکنندگان
+                قطعات و تجهیزات صنعتی.
+            </p>
 
         </div>
 
-      </div>
+
+        <div class="service">
+
+            <span class="service-number">03</span>
+
+            <div class="service-icon">◈</div>
+
+            <h3>تأمین‌کنندگان</h3>
+
+            <p>
+                شناسایی شرکت‌هایی که قطعه موردنظر
+                را در اختیار دارند.
+            </p>
+
+        </div>
+
+
+        <div class="service">
+
+            <span class="service-number">04</span>
+
+            <div class="service-icon">↗</div>
+
+            <h3>واردکنندگان</h3>
+
+            <p>
+                پیدا کردن مسیرهای واردات و تأمین
+                قطعات تخصصی.
+            </p>
+
+        </div>
+
+
+        <div class="service">
+
+            <span class="service-number">05</span>
+
+            <div class="service-icon">＋</div>
+
+            <h3>درخواست خرید</h3>
+
+            <p>
+                نیاز خود را ثبت کنید تا مسیر مناسب
+                تأمین برای شما پیدا شود.
+            </p>
+
+        </div>
 
     </div>
 
-  </section>
+</section>
 
 
+<!-- ================= NETWORK ================= -->
 
-  <!-- =========================
-       CTA
-  ========================= -->
+<section id="network">
 
-  <section class="content-section">
+    <div class="section-label">
+        SUPPLY CHAIN
+    </div>
 
-    <div class="cta">
+    <h2 class="section-title">
+        یک قطعه، چند مسیر
+    </h2>
 
-      <div>
+    <p class="section-description">
+        فراوند ارتباط میان بخش‌های مختلف زنجیره تأمین
+        صنعتی را ساده می‌کند.
+    </p>
 
-        <div class="eyebrow">
-          شروع همکاری
+
+    <div class="flow-container">
+
+        <div class="flow-card">
+
+            <strong>01</strong>
+
+            <h3>خریدار</h3>
+
+            <p>
+                شرکت نیاز خود به یک قطعه یا تجهیز
+                صنعتی را ثبت می‌کند.
+            </p>
+
         </div>
 
-        <h2>
-          قطعه‌ای که می‌خواهید را پیدا کنید.
-        </h2>
 
-        <p>
-          درخواست خود را ثبت کنید یا
-          به شبکه شرکت‌های صنعتی فراوند بپیوندید.
-        </p>
+        <div class="flow-card">
 
-      </div>
+            <strong>02</strong>
+
+            <h3>فراوند</h3>
+
+            <p>
+                نیاز فنی را تحلیل و مسیرهای احتمالی
+                تأمین را پیدا می‌کند.
+            </p>
+
+        </div>
 
 
-      <a
-        href="#search"
-        class="btn btn-primary"
-      >
-        شروع جستجو
-      </a>
+        <div class="flow-card">
+
+            <strong>03</strong>
+
+            <h3>تأمین‌کننده</h3>
+
+            <p>
+                شرکت‌های دارای قطعه یا توان تأمین
+                شناسایی می‌شوند.
+            </p>
+
+        </div>
+
+
+        <div class="flow-card">
+
+            <strong>04</strong>
+
+            <h3>تولیدکننده</h3>
+
+            <p>
+                در صورت نیاز، ارتباط مستقیم با
+                تولیدکننده شکل می‌گیرد.
+            </p>
+
+        </div>
 
     </div>
 
-  </section>
+</section>
 
 
+<!-- ================= STATS ================= -->
 
-  <!-- =========================
-       FOOTER
-  ========================= -->
+<section class="stats">
 
-  <footer>
+    <div class="section-label">
+        FARAVAND VISION
+    </div>
 
-    <div class="footer-inner">
+    <h2 class="section-title">
+        شبکه‌ای برای صنعت
+    </h2>
 
-      <div>
+    <div class="stats-grid">
 
-        <div class="footer-brand">
-          فراوند
+        <div class="stat">
+            <strong>24/7</strong>
+            <span>دسترسی به شبکه تأمین</span>
         </div>
 
-        <div>
-          پل ارتباطی صنعت
+        <div class="stat">
+            <strong>360°</strong>
+            <span>دید کامل زنجیره تأمین</span>
         </div>
 
-      </div>
+        <div class="stat">
+            <strong>4+</strong>
+            <span>گروه اصلی فعال در شبکه</span>
+        </div>
 
-
-      <div>
-        خدمات
-        ·
-        شرکت‌ها
-        ·
-        تولیدکنندگان
-        ·
-        تأمین‌کنندگان
-      </div>
-
-
-      <div>
-        © ۱۴۰۵ فراوند
-      </div>
+        <div class="stat">
+            <strong>1</strong>
+            <span>مسیر برای هر نیاز</span>
+        </div>
 
     </div>
 
-  </footer>
+</section>
 
 
+<!-- ================= CTA ================= -->
 
-  <!-- TOAST -->
+<section class="cta" id="contact">
 
-  <div
-    class="toast"
-    id="toast"
-  ></div>
+    <div class="section-label">
+        START WITH FARAVAND
+    </div>
+
+    <h2>
+        قطعه‌ای پیدا نمی‌شود؟
+        <br>
+        <span style="color:#d08a55;">
+            شاید مسیرش پیدا نشده.
+        </span>
+    </h2>
+
+    <p>
+        نیاز صنعتی خود را ثبت کنید و مسیرهای احتمالی تأمین را پیدا کنید.
+    </p>
+
+    <a href="#" class="cta-button">
+        ثبت درخواست تأمین
+    </a>
+
+</section>
 
 
+<!-- ================= FOOTER ================= -->
 
-  <!-- =========================
-       JAVASCRIPT
-  ========================= -->
+<footer id="about">
 
-  <script>
+    <div>
+        فَراوَند | FARAVAND
+    </div>
 
-    const searchInput =
-      document.getElementById("searchInput");
+    <div>
+        پل ارتباطی صنعت · بازار قطعات و شیرآلات صنعتی ایران
+    </div>
 
-    const toast =
-      document.getElementById("toast");
+</footer>
 
 
-    /*
-      انتخاب یک دسته
-    */
+<script>
 
-    function setSearch(value) {
+    function setSearch(text) {
 
-      searchInput.value = value;
+        document.getElementById("searchInput").value = text;
 
-      searchInput.focus();
+        document.getElementById("searchInput").focus();
 
-      showMessage(
-        "«" + value + "» برای جستجو آماده شد."
-      );
     }
 
-
-    /*
-      جستجوی نمایشی
-    */
 
     function searchPart() {
 
-      const value =
-        searchInput.value.trim();
+        const value =
+            document.getElementById("searchInput").value.trim();
 
+        if (!value) {
 
-      if (value === "") {
+            alert("لطفاً نام قطعه یا نیاز صنعتی خود را وارد کنید.");
 
-        showMessage(
-          "لطفاً نام یا مشخصات قطعه را وارد کنید."
-        );
-
-        searchInput.focus();
-
-        return;
-      }
-
-
-      showMessage(
-        "جستجوی «" + value + "» ثبت شد."
-      );
-
-    }
-
-
-    /*
-      پیام کوچک پایین صفحه
-    */
-
-    function showMessage(message) {
-
-      toast.textContent = message;
-
-      toast.classList.add("show");
-
-
-      clearTimeout(
-        window.toastTimer
-      );
-
-
-      window.toastTimer =
-        setTimeout(() => {
-
-          toast.classList.remove("show");
-
-        }, 2800);
-
-    }
-
-
-    /*
-      Enter برای جستجو
-    */
-
-    searchInput.addEventListener(
-      "keydown",
-      function(event) {
-
-        if (event.key === "Enter") {
-
-          searchPart();
-
+            return;
         }
 
-      }
-    );
+        alert(
+            "جست‌وجوی فراوند برای «" +
+            value +
+            "» به‌زودی فعال می‌شود."
+        );
 
-  </script>
+    }
 
+
+    document
+        .getElementById("searchInput")
+        .addEventListener("keydown", function(event) {
+
+            if (event.key === "Enter") {
+
+                searchPart();
+
+            }
+
+        });
+
+</script>
 
 </body>
 </html>
