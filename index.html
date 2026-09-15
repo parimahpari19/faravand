@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>فراوند | FARAVAND</title>
+  <meta name="description" content="فراوند؛ پلتفرم تخصصی اتصال خریداران، تولیدکنندگان، تأمین‌کنندگان و واردکنندگان شیرآلات و قطعات صنعتی ایران.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <a href="#" class="logo">
+      <div class="logo-symbol">
+        <span>ف</span>
+      </div>
+      <div class="logo-text">
+        فراوند
+        <small>F A R A V A N D</small>
+      </div>
+    </a>
+
+    <nav>
+      <a href="#home" class="active">صفحه اصلی</a>
+      <a href="#services">خدمات</a>
+      <a href="#companies">شرکت‌ها</a>
+      <a href="#manufacturers">تولیدکنندگان</a>
+      <a href="#suppliers">تأمین‌کنندگان</a>
+      <a href="#importers">واردکنندگان</a>
+      <a href="#about">درباره ما</a>
+    </nav>
+
+    <div class="header-actions">
+      <span>FA / EN</span>
+      <a href="#" class="login" onclick="loginClick()">ورود / ثبت‌نام</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-container">
+      <div class="hero-content">
+        <div class="eyebrow">پل ارتباطی صنعت · بازار شیرآلات و قطعات صنعتی ایران</div>
+        <h1>فراوند؛<br><span>هر قطعه، یک مسیر تأمین دارد.</span></h1>
+        <p class="hero-description">فراوند پلتفرمی تخصصی برای پیدا کردن قطعه، شناسایی تأمین‌کننده و اتصال خریداران، تولیدکنندگان و واردکنندگان در زنجیره تأمین صنعت ایران است.</p>
+        <div class="buttons">
+          <a href="#search" class="btn btn-primary">پیدا کردن قطعه</a>
+          <a href="#about" class="btn">آشنایی با فراوند</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEARCH -->
+  <section class="search-section" id="search">
+    <div class="search-box">
+      <div class="search-row">
+        <input id="searchInput" type="text" placeholder="نام قطعه، کد فنی، برند، سایز یا مشخصات موردنظر را وارد کنید...">
+        <button class="search-button" onclick="searchPart()">جستجوی هوشمند</button>
+      </div>
+      <div class="chips">
+        <button class="chip" onclick="setSearch('شیر پروانه‌ای')">شیر پروانه‌ای</button>
+        <button class="chip" onclick="setSearch('شیر توپی')">شیر توپی</button>
+        <button class="chip" onclick="setSearch('ولو')">ولو</button>
+        <button class="chip" onclick="setSearch('اکچویتور')">اکچویتور</button>
+        <button class="chip" onclick="setSearch('فلنج')">فلنج</button>
+        <button class="chip" onclick="setSearch('قطعات یدکی')">قطعات یدکی</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="content-section" id="services">
+    <div class="section-title">
+      <div class="eyebrow">مسیر ورود به بازار</div>
+      <h2>چه چیزی می‌خواهید پیدا کنید؟</h2>
+      <p>فراوند فقط یک کاتالوگ صنعتی نیست؛ بستری برای ایجاد ارتباط میان بخش‌های مختلف زنجیره تأمین صنعت است.</p>
+    </div>
+
+    <div class="services">
+      <article class="service-card" onclick="showMessage('جستجوی قطعه')">
+        <div class="service-image"></div>
+        <div class="service-body">
+          <div class="service-icon">⌕</div>
+          <h3>پیدا کردن قطعه</h3>
+          <p>جستجوی سریع و هوشمند قطعات صنعتی با کد فنی، برند و مشخصات</p>
+        </div>
+      </article>
+
+      <article class="service-card" onclick="showMessage('شناسایی تأمین‌کنندگان')">
+        <div class="service-image"></div>
+        <div class="service-body">
+          <div class="service-icon">🏭</div>
+          <h3>شناسایی تأمین‌کنندگان</h3>
+          <p>اتصال مستقیم به تولیدکنندگان، واردکنندگان و توزیع‌کنندگان</p>
+        </div>
+      </article>
+
+      <article class="service-card" onclick="showMessage('مقایسه قیمت‌ها')">
+        <div class="service-image"></div>
+        <div class="service-body">
+          <div class="service-icon">💰</div>
+          <h3>مقایسه قیمت‌ها</h3>
+          <p>مقایسه قیمت‌ها و شرایط تأمین از چندین منبع</p>
+        </div>
+      </article>
+
+      <article class="service-card" onclick="showMessage('رایزنی و توافق')">
+        <div class="service-image"></div>
+        <div class="service-body">
+          <div class="service-icon">🤝</div>
+          <h3>رایزنی و توافق</h3>
+          <p>ابزارهای ارتباطی برای مذاکره و بسته‌بندی معاملات</p>
+        </div>
+      </article>
+
+      <article class="service-card" onclick="showMessage('پیگیری سفارش')">
+        <div class="service-image"></div>
+        <div class="service-body">
+          <div class="service-icon">📦</div>
+          <h3>پیگیری سفارش</h3>
+          <p>نظارت بر مراحل تولید، حمل‌ونقل و تحویل</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- SHOWCASE -->
+  <section class="content-section">
+    <div class="showcase">
+      <div class="showcase-main">
+        <div>
+          <h2>چرا فراوند؟</h2>
+          <p>فراوند بیش‌تر از یک پلتفرم است. ما یک اکوسیستم صنعتی می‌سازیم که هر بازیگر را قدرت‌مند می‌کند.</p>
+        </div>
+      </div>
+      <div class="stats">
+        <div class="stat">
+          <strong>۱۰۰۰+</strong>
+          <span>تأمین‌کننده فعال</span>
+        </div>
+        <div class="stat">
+          <strong>۵۰۰۰۰+</strong>
+          <span>قطعه موجود</span>
+        </div>
+        <div class="stat">
+          <strong>۲۴/۷</strong>
+          <span>پشتیبانی</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="iran-box">
+      <div>
+        <h3>ساخت ایران، برای ایران</h3>
+        <p>فراوند توسط متخصصین صنعت ایران، برای حل مسائل زنجیره تأمین ایرانی ساخته شده است.</p>
+      </div>
+      <div class="iran-symbol">🇮🇷</div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="content-section">
+    <div class="cta">
+      <div>
+        <h2>آماده‌اید؟</h2>
+        <p>به بازار شیرآلات و قطعات صنعتی ایران بپیوندید و فرصت‌های نامحدود را کشف کنید.</p>
+      </div>
+      <a href="#" class="btn btn-primary" onclick="loginClick()">شروع کنید</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">© 2024 فراوند</div>
+      <div>تمام حقوق محفوظ است | Built with ❤️ for Iranian Industry</div>
+      <div>
+        <a href="#">شرایط استفاده</a> | 
+        <a href="#">حریم خصوصی</a> | 
+        <a href="#">تماس با ما</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
